@@ -4,7 +4,7 @@ import { auth } from "../firebase/credenciales";
 import { LandingContainer } from "../containers";
 import { LandingFormSection } from "../sections";
 
-export default function Landing() {
+export default function Login() {
   const navigate = useNavigate();
 
   onAuthStateChanged(auth, (usuarioFirebase) => {

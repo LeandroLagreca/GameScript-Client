@@ -1,17 +1,17 @@
-import axios from 'axios'
+import axios from 'axios';
+import { API_URL } from '../../config';
 
-export async function saveOrder() {
-    
-}
+export async function saveOrder() {}
 
 export async function makeEmail(to, name, order) {
-	const games = order.games.map(game => (
-		`<li>
+    const games = order.games.map(
+        (game) =>
+            `<li>
 			<span>Nombre: ${game.name} X${game.cant}</span> <br>
 			<span>Precio: ${game.price}</span>
 		</li>`
-	))
-    axios.post('http://localhost:3001/sendMail', {
+    );
+    axios.post(`${API_URL}/sendMail`, {
         to,
         subject: 'Compra Realizada con exito!',
         html: `
@@ -23,6 +23,6 @@ export async function makeEmail(to, name, order) {
         <ul>
 					${games}
         </ul>
-        `
-    })
+        `,
+    });
 }

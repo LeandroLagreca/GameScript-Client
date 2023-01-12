@@ -6,6 +6,7 @@ import { MoreVert, DeleteForever } from "@mui/icons-material";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import Swal from "sweetalert2";
+import { API_URL } from "../../config";
 
 export default function DotMenu({ id }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -36,7 +37,7 @@ export default function DotMenu({ id }) {
       cancelButtonText: `Cancelar`,
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.put("http://localhost:3001/user/" + id, {
+        await axios.put(`${API_URL}/user/` + id, {
           available: false,
         });
         navigate(0);
