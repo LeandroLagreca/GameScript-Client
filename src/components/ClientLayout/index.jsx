@@ -6,7 +6,7 @@ export default function ClientLayout({ children }) {
   return (
     <>
       <Navbar />
-      <Box maxWidth="lg">{children}</Box>
+      <Box>{children}</Box>
       <Footer />
     </>
   );
